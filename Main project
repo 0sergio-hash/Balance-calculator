@@ -1,0 +1,32 @@
+# Do I have $ calc
+
+#This code sums up all credit expenses to get total I owe
+credit_total = 0
+credit_expense = 0
+while credit_expense != 'done':
+    print('Add credit expenses, say "done" when finished.')
+    credit_expense = input()
+    try:
+        credit_total+=float(credit_expense)
+    except: 0
+
+#Enter current checking account balance        
+print('Please enter current bank balance')
+bank_balance = float(input())
+
+#Enter budgeted expenses I have not yet made
+total_future_expenses = 0
+future_expense = 0
+while future_expense != 'done':
+    print('Add upcoming budgeted expenses, say "done" when finished.')
+    future_expense = input()
+    try:
+        total_future_expenses+=float(future_expense)
+    except:0
+
+available_funds = round(bank_balance - (credit_total+total_future_expenses),2)        
+        
+print('\033[1m'+'Your current credit balance is: ${}.\n\
+Your bank balance is: ${}.\n\
+Your upcoming expenses are: ${}.\n\
+Your remainder is: ${}.'.format(round(credit_total,2),bank_balance,total_future_expenses,available_funds))
